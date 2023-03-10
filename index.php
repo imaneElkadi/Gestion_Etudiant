@@ -10,7 +10,27 @@
     </br>
     <script>
 function test(){
-alert("helooe bitch");
+var cne=document.getElementByName('cne').value;
+var nom=document.getElementByName('nom').value;
+var prenom=document.getElementByName('prenom').value;
+var dtn=document.getElementByName('dateNaissance').value;
+var email=document.getElementByName('email').value;
+
+let dateNaissance = new Date(dtn);
+let dateActuelle = new Date();
+
+let anneeActuelle = dateActuelle.getFullYear();
+let anneeNaissance = dateNaissance.getFullYear();
+let age = anneeActuelle - anneeNaissance;
+
+if(cne =="" || nom=="" || prenom=="" )
+alert('champs obligatoire !!');
+
+if(age< 18 && age >23)
+alert('erreur date !!');
+
+if(!email.includes('@'))
+alert('email doit contenir @ ');
 }
     </script>
 </head>
@@ -23,24 +43,24 @@ alert("helooe bitch");
    
 <tr>
 
-
+<label for="cne" style="color:red;">*</label>
 <input type="text" name="cne" class="input" placeholder=" Cne....">
 
 </tr></br></br>
 <tr>
-
+<label for="nom" style="color:red;">*</label>
 <input type="text" name="nom" class="input" placeholder=" Nom....">
 </tr></br></br>
 <tr>
-
+<label for="prenom" style="color:red;">*</label>
 <input type="text" name="prenom" class="input" placeholder=" Prenom....">
 </tr></br></br>
 <tr>
-
+<label for="dateNaissance" style="color:red;">*</label>
 <input type="date" name="dateNaissance" class="input" placeholder=" dateNaissance....">
 </tr></br></br>
 <tr>
-
+<label for="email" style="color:red;">*</label>
 <input type="text" name="email" class="input" placeholder=" email....">
 </tr></br></br>
 </div>
