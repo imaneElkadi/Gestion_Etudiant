@@ -8,35 +8,40 @@
     <title>Gestion des etudiant </title>
     <h1> Bonjour cher Etudiant :</h1>
     </br>
+    <script>
+function test(){
+alert("helooe bitch");
+}
+    </script>
 </head>
 <body>
     <div class="main">
         <div >
 <fieldset style="width:250px"> 
 
-<form method="POST" action="inscription.php">
+<form method="POST" action="inscription.php" onsubmit=" return test()">
    
 <tr>
 
 
-<input type="text" name="text" class="input" placeholder=" Cne....">
+<input type="text" name="cne" class="input" placeholder=" Cne....">
 
 </tr></br></br>
 <tr>
 
-<input type="text" name="text" class="input" placeholder=" Nom....">
+<input type="text" name="nom" class="input" placeholder=" Nom....">
 </tr></br></br>
 <tr>
 
-<input type="text" name="text" class="input" placeholder=" Prenom....">
+<input type="text" name="prenom" class="input" placeholder=" Prenom....">
 </tr></br></br>
 <tr>
 
-<input type="date" name="text" class="input" placeholder=" dateNaissance....">
+<input type="date" name="dateNaissance" class="input" placeholder=" dateNaissance....">
 </tr></br></br>
 <tr>
 
-<input type="text" name="text" class="input" placeholder=" email....">
+<input type="text" name="email" class="input" placeholder=" email....">
 </tr></br></br>
 </div>
 
@@ -60,7 +65,7 @@ while($resultat=$res->fetch_assoc()){
     <tr>
 <td>$codeF</td>
 <td>$libelle</td>
-<td> <input name='check' type='checkbox'></td>
+<td> <input name='check[]' type='checkbox' value='$codeF'></td>
 
 </tr>
     ";
@@ -72,7 +77,9 @@ echo"</table>";
 <tr>
 <td> <button type="submit" name="bnt1">S'inscrire</button></td>
 </tr></br></br>
-
+<!-- <tr>
+<td> <input type="reset" value="Reset"></td>
+</tr></br></br> -->
 </form>
 </fieldset> 
 </div>
