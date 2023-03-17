@@ -10,7 +10,7 @@
     </br>
     <script>
 function test(){
-var cne=document.getElementByName('cne').value;
+var cne=document.getElementByName("cne").value;
 var nom=document.getElementByName('nom').value;
 var prenom=document.getElementByName('prenom').value;
 var dtn=document.getElementByName('dateNaissance').value;
@@ -23,14 +23,19 @@ let anneeActuelle = dateActuelle.getFullYear();
 let anneeNaissance = dateNaissance.getFullYear();
 let age = anneeActuelle - anneeNaissance;
 
-if(cne =="" || nom=="" || prenom=="" )
+if(cne == "" || nom == "" || prenom == "" ){
 alert('champs obligatoire !!');
+return true;}
 
-if(age< 18 && age >23)
+if(age< 18 && age >23){
 alert('erreur date !!');
+return false;}
 
-if(!email.includes('@'))
+if(!email.includes('@')){
 alert('email doit contenir @ ');
+return false;}
+else{
+return true;}
 }
     </script>
 </head>
@@ -39,7 +44,7 @@ alert('email doit contenir @ ');
         <div >
 <fieldset style="width:250px"> 
 
-<form method="POST" action="inscription.php" onsubmit=" return test()">
+<form method="POST" action="inscription.php" >
    
 <tr>
 
@@ -61,7 +66,7 @@ alert('email doit contenir @ ');
 </tr></br></br>
 <tr>
 <label for="email" style="color:red;">*</label>
-<input type="text" name="email" class="input" placeholder=" email....">
+<input type="email" name="email" class="input" placeholder=" email....">
 </tr></br></br>
 </div>
 
@@ -95,7 +100,7 @@ echo"</table>";
 </br></br>
 
 <tr>
-<td> <button type="submit" name="bnt1">S'inscrire</button></td>
+<td> <button type="submit" name="bnt1" onclick=" return test();">S'inscrire</button></td>
 </tr></br></br>
 <!-- <tr>
 <td> <input type="reset" value="Reset"></td>
