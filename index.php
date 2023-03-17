@@ -13,6 +13,7 @@ function test(){
 var cne=document.getElementByName("cne").value;
 var nom=document.getElementByName('nom').value;
 var prenom=document.getElementByName('prenom').value;
+
 var dtn=document.getElementByName('dateNaissance').value;
 var email=document.getElementByName('email').value;
 
@@ -27,7 +28,7 @@ if(cne == "" || nom == "" || prenom == "" ){
 alert('champs obligatoire !!');
 return true;}
 
-if(age< 18 && age >23){
+if(age< 18 || age >23){
 alert('erreur date !!');
 return false;}
 
@@ -49,16 +50,16 @@ return true;}
 <tr>
 
 <label for="cne" style="color:red;">*</label>
-<input type="text" name="cne" class="input" placeholder=" Cne....">
+<input type="text" name="cne" class="input" placeholder=" Cne...." required>
 
 </tr></br></br>
 <tr>
 <label for="nom" style="color:red;">*</label>
-<input type="text" name="nom" class="input" placeholder=" Nom....">
+<input type="text" name="nom" class="input" placeholder=" Nom...." required>
 </tr></br></br>
 <tr>
 <label for="prenom" style="color:red;">*</label>
-<input type="text" name="prenom" class="input" placeholder=" Prenom....">
+<input type="text" name="prenom" class="input" placeholder=" Prenom...." required>
 </tr></br></br>
 <tr>
 <label for="dateNaissance" style="color:red;">*</label>
@@ -66,7 +67,7 @@ return true;}
 </tr></br></br>
 <tr>
 <label for="email" style="color:red;">*</label>
-<input type="email" name="email" class="input" placeholder=" email....">
+<input type="email" name="email" class="input" placeholder=" email...." required>
 </tr></br></br>
 </div>
 
