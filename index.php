@@ -10,7 +10,7 @@
     </br>
     <script>
 function test(){
-var cne=document.getElementByName("cne").value;
+var cne=document.getElementByName('cne').value;
 var nom=document.getElementByName('nom').value;
 var prenom=document.getElementByName('prenom').value;
 
@@ -23,12 +23,12 @@ let dateActuelle = new Date();
 let anneeActuelle = dateActuelle.getFullYear();
 let anneeNaissance = dateNaissance.getFullYear();
 let age = anneeActuelle - anneeNaissance;
-
+console.log(age);
 if(cne == "" || nom == "" || prenom == "" ){
 alert('champs obligatoire !!');
-return true;}
+return false;}
 
-if(age< 18 || age >23){
+if(age> 23 || age < 18){
 alert('erreur date !!');
 return false;}
 
@@ -101,7 +101,7 @@ echo"</table>";
 </br></br>
 
 <tr>
-<td> <button type="submit" name="bnt1" onclick=" return test();">S'inscrire</button></td>
+<td> <button type="submit" name="bnt1" onclick="test()">S'inscrire</button></td>
 </tr></br></br>
 <!-- <tr>
 <td> <input type="reset" value="Reset"></td>
