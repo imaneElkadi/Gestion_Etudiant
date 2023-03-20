@@ -4,41 +4,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=, initial-scale=1.0">
+    <meta http-equiv="Content-Script-Type" content="application/javascript" />
     <link rel="stylesheet" href="style.css">
     <title>Gestion des etudiant </title>
     <h1> Bonjour cher Etudiant :</h1>
     </br>
-    <script>
-function test(){
-var cne=document.getElementByName('cne').value;
-var nom=document.getElementByName('nom').value;
-var prenom=document.getElementByName('prenom').value;
-
-var dtn=document.getElementByName('dateNaissance').value;
-var email=document.getElementByName('email').value;
-
-let dateNaissance = new Date(dtn);
-let dateActuelle = new Date();
-
-let anneeActuelle = dateActuelle.getFullYear();
-let anneeNaissance = dateNaissance.getFullYear();
-let age = anneeActuelle - anneeNaissance;
-console.log(age);
-if(cne == "" || nom == "" || prenom == "" ){
-alert('champs obligatoire !!');
-return false;}
-
-if(age> 23 || age < 18){
-alert('erreur date !!');
-return false;}
-
-if(!email.includes('@')){
-alert('email doit contenir @ ');
-return false;}
-else{
-return true;}
-}
-    </script>
 </head>
 <body>
     <div class="main">
@@ -50,7 +20,7 @@ return true;}
 <tr>
 
 <label for="cne" style="color:red;">*</label>
-<input type="text" name="cne" class="input" placeholder=" Cne...." required>
+<input type="text" name="cne" class="input" placeholder=" Cne...." >
 
 </tr></br></br>
 <tr>
@@ -70,7 +40,38 @@ return true;}
 <input type="email" name="email" class="input" placeholder=" email...." required>
 </tr></br></br>
 </div>
+<script>
+    function test(){
+    var cne=document.getElementByName("cne").value;
+    var nom=document.getElementByName('nom').value;
+    var prenom=document.getElementByName('prenom').value;
+    
+    var dtn=document.getElementByName('dateNaissance').value;
+    var email=document.getElementByName('email').value;
+    
+    let dateNaissance = new Date(dtn);
+    let dateActuelle = new Date();
+     
+    let anneeActuelle = dateActuelle.getFullYear();
+    let anneeNaissance = dateNaissance.getFullYear();
+    let age = anneeActuelle - anneeNaissance;
+   
+    if(cne == "" || nom == "" || prenom == "" ){
+    alert('champs obligatoire !!');
+    return false;}
+    
+    if(age> 23 || age < 18){
+    alert('erreur date !!');
+    return false;}
+    
+    if(email.includes('@')==false){
+    alert('email doit contenir @ ');
+    return false;}
+    
+    return true;
+    }
 
+</script>
 <div >
 <?php
 require "connection.php";
@@ -79,7 +80,7 @@ echo" <table border=1>
 <th>Code Filiere</th>
 <th>libelle</th>
 <th>Votre choix</th>
-
+<th> choix</th>
 </tr>
 ";
 $req="select * from filiere";
@@ -92,7 +93,7 @@ while($resultat=$res->fetch_assoc()){
 <td>$codeF</td>
 <td>$libelle</td>
 <td> <input name='check[]' type='checkbox' value='$codeF'></td>
-
+<td><input type='number' name='choice_order[]' id='choice1_order'></td>
 </tr>
     ";
 }
